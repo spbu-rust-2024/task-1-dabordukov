@@ -2,6 +2,10 @@ use std::io;
 
 
 fn insertion_sort(numbers: &mut Vec<i32>) {
+    if numbers.len() < 2 {
+        return;
+    }
+
     let mut i = 1;
     loop {
         let mut j = i - 1;
@@ -20,6 +24,10 @@ fn insertion_sort(numbers: &mut Vec<i32>) {
 
 fn print_vector(numbers: &Vec<i32>) {
     print!("{}", numbers[0]);
+    if numbers.len() < 2 {
+        return;
+    }
+    
     let mut i = 1;
     loop {
         print!(" {}", numbers[i]);
