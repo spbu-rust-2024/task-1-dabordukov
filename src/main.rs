@@ -1,3 +1,4 @@
+use itertools::join;
 use std::io;
 
 fn insertion_sort(numbers: &mut Vec<i32>) {
@@ -23,21 +24,6 @@ fn insertion_sort(numbers: &mut Vec<i32>) {
     }
 }
 
-fn print_vector(numbers: &Vec<i32>) {
-    print!("{}", numbers[0]);
-    if numbers.len() < 2 {
-        return;
-    }
-
-    let mut i = 1;
-    loop {
-        print!(" {}", numbers[i]);
-        i += 1;
-        if i >= numbers.len() {
-            break;
-        }
-    }
-}
 fn main() {
     let mut input = String::new();
     let _ = io::stdin().read_line(&mut input);
@@ -48,5 +34,5 @@ fn main() {
         .collect();
 
     insertion_sort(&mut numbers);
-    print_vector(&numbers);
+    print!("{}", join(&numbers, " "));
 }
