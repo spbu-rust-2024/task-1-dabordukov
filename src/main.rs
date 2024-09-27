@@ -1,7 +1,7 @@
 use itertools::join;
 use std::io;
 
-fn insertion_sort(numbers: &mut Vec<i32>) {
+fn insertion_sort(numbers: &mut Vec<i16>) {
     if numbers.len() < 2 {
         return;
     }
@@ -27,10 +27,9 @@ fn insertion_sort(numbers: &mut Vec<i32>) {
 fn main() {
     let mut input = String::new();
     let _ = io::stdin().read_line(&mut input);
-    let mut numbers: Vec<i32> = input
-        .trim()
-        .split(' ')
-        .map(|x| x.trim().parse().expect("Not an integer"))
+    let mut numbers: Vec<i16> = input
+        .split_whitespace()
+        .map(|x| x.parse().expect("Not an integer"))
         .collect();
 
     insertion_sort(&mut numbers);
